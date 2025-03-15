@@ -1,0 +1,253 @@
+.cart-body{
+    width: 95%;
+    margin: auto;
+}
+
+.cart-section-page{
+    margin-top: 50px;
+}
+
+.cart-items-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: antiquewhite; */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.cart-items-title p{
+    margin: 0;
+}
+
+.cart-bar{
+    opacity: 0.7;
+    margin: 0;
+}
+
+#cart-item-details{
+    margin-top: 10px;
+}
+
+.cart-item-div{
+    width: 6%;
+    object-fit: cover;
+    /* background-color: aqua; */
+}
+
+.cart-item-title-div{
+    width: 14%;
+    /* background-color: aqua; */
+}
+
+.cart-item-price-div{
+    width: 10%;
+    /* background-color: aqua; */
+}
+
+.cart-item-quantity-div{
+    width: 7%;
+    /* background-color: aqua; */
+}
+
+.food-item-count-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid grey;
+}
+
+.food-item-count-cart p{
+    height: 25px;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(201, 201, 201); */
+    border-radius: 2px;
+    /* padding: 0 8px 0 8px; */
+}
+
+.add-icon-minus-cart{
+    height: 25px;
+    width: 25px;
+    /* background-color: rgb(253, 220, 157); */
+    color: rgb(146, 146, 146);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border-radius: 50%; */
+    margin-right: 8px;
+}
+
+.add-icon-add-cart{
+    height: 25px;
+    width: 25px;
+    /* background-color: rgb(161, 255, 161); */
+    color: rgb(146, 146, 146);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border-radius: 50%; */
+    margin-left: 8px;
+}
+
+.cart-item-total-div{
+    width: 11%;
+    /* background-color: aqua; */
+}
+
+.customized-div{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.customized-div p{
+    font-size: 15px;
+}
+
+.customized-div i{
+    font-size: 11px;
+    color: tomato;
+    padding-left: 5px;
+    margin-top: 3px;
+}
+
+.cart-item-remove-div{
+    display: flex;
+    justify-content: center;
+    /* background-color: aqua; */
+    cursor: pointer;
+}
+
+.cart-item-img{
+    height: 65px;
+    width: 65px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.font-bold{
+    font-weight: bold;
+}
+
+.empty-cart{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 60px;
+}
+
+.empty-cart h1{
+    font-size: 30px;
+}
+
+.cart-total-amount-section{
+    width: 50%;
+    margin: 35px 0 50px 0;
+    background-color: antiquewhite;
+    padding: 8px;
+}
+
+.inner-cart-total-amount h2{
+    font-weight: bold;
+}
+
+.sub-total-amount{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 5px;
+}
+
+.total-delivery-fee{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 5px;
+}
+
+.total-amount{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 5px;
+}
+
+.checkOut-btn{
+    padding: 10px 30px;
+    color: white;
+    background-color: tomato;
+    border: none;
+    cursor: pointer;
+    margin: 10px 5px;
+}
+
+.checkOut-btn:hover{
+    opacity: 0.9;
+}
+
+@media (max-width: 780px){
+    .cart-item-img{
+        height: 45px;
+        width: 45px;
+    }
+    .font-adjust-title{
+        font-size: 14px;
+    }
+    .font-adjust-items{
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 550px){
+    .cart-item-img{
+        height: 30px;
+        width: 30px;
+    }
+    .font-adjust-title{
+        font-size: 14px;
+    }
+    .font-adjust-items{
+        font-size: 12px;
+    }
+    .remove-icon{
+        font-size: 14px;
+    }
+    .empty-cart h1{
+        font-size: 17px;
+    }
+    .cart-total-amount-section{
+        width: 100%;
+    }
+    .inner-cart-total-amount h2{
+        font-size: 16px;
+    }
+    .checkOut-btn{
+        font-size: 11px;
+    }    
+}
+
+/* Inside page.css or a CSS module */
+.cart-item-quantity-div .full-text {
+  display: block;
+}
+
+.cart-item-quantity-div .short-text {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .cart-item-quantity-div .full-text {
+    display: none;
+  }
+  
+  .cart-item-quantity-div .short-text {
+    display: block;
+  }
+}

@@ -1,0 +1,129 @@
+.hero-section-parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 15px;
+}
+
+.hero-section{
+    width: 100%;
+    height: 500px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.hero-section img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px; 
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust the darkness by changing the opacity (0.5) */
+    z-index: 1;
+    border-radius: 15px;
+}
+
+.hero-text{
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    width: 60%;
+    margin-left: 25px;
+    /* top: 25%; */
+    animation: fadeIn 3s;
+}
+
+.hero-text h1{
+    font-weight: bold;
+    font-size: 4rem;
+    line-height: 1.1;
+    margin: 0;
+    text-shadow: 8px 8px 10px rgba(0, 0, 0, 0.8);
+    /* animation: fadeIn 3s; */
+}
+
+/* .hero-text p{
+    animation: fadeIn 3s;
+} */
+
+@media (min-width: 1900px){
+    .hero-section{
+        width: 100%;
+        height: 550px;
+    }
+}
+
+@media (min-width: 2230px){
+    .hero-section{
+        width: 100%;
+        height: 600px;
+    }
+}
+
+@media (max-width: 1710px){
+    .hero-section{
+        height: 460px;
+    }
+}
+
+@media (max-width: 1300px){
+    .hero-section{
+        height: 400px;
+    }
+    .hero-text h1{
+        font-size: 3.5rem;
+    }
+    .hero-text{
+        width: 80%;
+    }
+}
+
+@media (max-width: 980px){
+    .hero-section{
+        height: 360px;
+    }
+    .hero-text h1{
+        font-size: 3rem;
+    }
+    .hero-text{
+        width: 80%;
+    }
+}
+
+@media (max-width: 850px){
+    .hero-section{
+        height: 320px;
+    }
+    .hero-text h1{
+        font-size: 2.6rem;
+    }
+    .hero-text p{
+        font-size: 12px;
+    }
+    .hero-text{
+        width: 80%;
+    }
+}
+
+@media (max-width: 700px){
+    .hero-section{
+        height: 280px;
+    }
+    .hero-text h1{
+        font-size: 1.8rem;
+    }
+    .hero-text p{
+        font-size: 11px;
+    }
+    .hero-text{
+        width: 85%;
+    }
+}
