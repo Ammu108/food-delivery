@@ -38,10 +38,10 @@ const SignIn = ({ setShowLogin }) => {
                     console.error("user data is undefined");
                 }
                 console.log(data)
-                navigate('/')
                 setShowLogin(false);
+                navigate('/')
             } else {
-                setError(response.data.message)
+                setError(response.data.message) 
             }
 
         } catch (error) {

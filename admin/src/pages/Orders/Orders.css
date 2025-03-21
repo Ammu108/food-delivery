@@ -1,0 +1,130 @@
+.admin-orders-container {
+  height: 85vh;
+  margin: 20px;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.admin-orders-container::-webkit-scrollbar{
+  display: none;
+}
+
+
+.admin-orders-inside-container{
+  border: 1px solid black;
+}
+
+.order-details-id-box{
+  padding: 10px;
+}
+
+.order-details-id-box p{
+  margin: 0;
+}
+
+.order-items-details{
+  border-top: 1px solid black;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.inside-order-items-details{
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.inside-order-items-details p{
+  margin: 0;
+}
+
+.order-item-img-div{
+  height: 70px;
+  width: 70px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.order-item-img-div img{
+  height: 100%;
+  width: 100%;
+}
+
+.total-payable-amount{
+  border-left: 1px solid black;
+  padding: 10px;
+}
+
+.total-payable-amount p{
+  margin: 0;
+}
+
+.number-of-orders{
+  border-right: 1px solid black;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.extra-details{
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.user-address-details p{
+  margin: 0;
+}
+
+.actions-btn button{
+  background-color: transparent;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  width: 200px;
+  height: 35px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.actions-btn{
+  width: 250px;
+}
+
+.back-btn-div button{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid black;
+  margin-bottom: 20px;
+  height: 30px;
+}
+
+.back-btn{
+  transition: transform, background-color 0.4s ease;
+}
+
+.back-btn:hover{
+  transform: scale(1.02);
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.back-btn:active{
+  transform: scale(0.9);
+}

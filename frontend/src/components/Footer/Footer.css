@@ -85,6 +85,19 @@
     border: none; /* Removes the default border */
 }
 
+.admin-btn{
+    width: 120px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.admin-btn:active{
+    transform: scale(0.9);
+}
+
 @media(max-width: 1000px){
     .footer-content-left{
         width: 65%;

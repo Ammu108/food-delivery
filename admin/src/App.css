@@ -1,0 +1,12 @@
+.admin-components{
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-sidebar-components{
+    display: flex;
+}
+
+.inside-admin-components{
+    width: 100%;
+}

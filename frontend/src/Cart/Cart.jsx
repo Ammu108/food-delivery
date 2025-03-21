@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import "./Cart.css"
+import { AppContext } from '../context/AppContext';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
+
+    const { cartItems, food_list, removeFromCart, getTotalCartAmount, url } = useContext(AppContext);
+    const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
+
+    const handleCheckout = () => {
+        navigate("/order")
+    }
+
+    const isCartEmpty = food_list.some(item => cartItems[item._id] > 0);
+
     return (
         <>
             <div className='cart-body'>
@@ -32,42 +45,37 @@ const Cart = () => {
                         </div>
 
                         <hr className="cart-bar" />
-
-                        {/* {isCartEmpty ? ( */}
+                        {isCartEmpty ? (
                             <>
-                                {/* {food_list.map((item, index) => {
-                                    if (cartItems[item.id] > 0) {
+                                {food_list.length > 0 && food_list.map((item, index) => {
+                                    if (cartItems[item._id] > 0) {
                                         return (
                                             <div key={index} id="cart-item-details" className="cart-items-title">
                                                 <div className="cart-item-div">
-                                                    <img src={item.imageUrl} className="cart-item-img" alt="img" />
+                                                    <img src={`${url}/images/` + item.image} className="cart-item-img" alt="img" />
                                                 </div>
                                                 <div className="cart-item-title-div">
                                                     <p className="font-adjust-items">{item.name}</p>
-                                                    <div className='customized-div'>
-                                                        <p>Customize</p>
-                                                        <i className="fa-solid fa-greater-than"></i>
-                                                    </div>
                                                 </div>
                                                 <div className="cart-item-price-div">
                                                     <p className="font-adjust-items">₹ {item.price}</p>
                                                 </div>
                                                 <div className="cart-item-quantity-div">
-                                                    <p className="font-adjust-items">{cartItems[item.id]}</p>
+                                                    <p className="font-adjust-items">{cartItems[item._id]}</p>
                                                 </div>
                                                 <div className="cart-item-total-div">
-                                                    <p className="font-adjust-items">₹ {item.price * cartItems[item.id]}</p>
+                                                    <p className="font-adjust-items">₹ {item.price * cartItems[item._id]}</p>
                                                 </div>
                                                 <div className="cart-item-remove-div">
-                                                    <i onClick={() => removeFromCart(item.id)} className="fa-solid fa-xmark remove-icon"></i>
+                                                    <i onClick={() => removeFromCart(item._id)} className="fa-solid fa-xmark remove-icon"></i>
                                                 </div>
                                             </div>
                                         );
                                     }
-                                })} */}
-                                {/* <div className="cart-total-amount-section">
+                                })}
+                                <div className="cart-total-amount-section">
                                     <div className="inner-cart-total-amount">
-                                        <h2>Cart Totals</h2>
+                                        <h4 className='fw-bold'>Cart Totals</h4>
                                         <div className="sub-total-amount">
                                             <p className="font-adjust-title">Sub Total</p>
                                             <p className="font-adjust-items">₹ {getTotalCartAmount()}</p>
@@ -86,13 +94,15 @@ const Cart = () => {
                                             <button onClick={handleCheckout} className="checkOut-btn">{isLoading ? "Processing..." : "PROCEED TO CHECKOUT"}</button>
                                         </div>
                                     </div>
-                                </div> */}
+                                </div>
+
                             </>
-                        {/* ) : ( */}
+                        ) : (
                             <div className="empty-cart">
-                                <h1 className='fw-bold'>No Items Added In The Cart...</h1>
+                                <h1>No Items Added In The Cart...</h1>
                             </div>
-                        {/* )} */}
+                        )}
+
                     </div>
                 </div>
             </div>

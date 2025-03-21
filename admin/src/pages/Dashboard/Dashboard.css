@@ -1,0 +1,116 @@
+.admin-dashboard-container{
+    height: 85vh;
+    margin: 20px;
+    /* border: 1px solid rgb(0, 0, 0); */
+    padding: 20px;
+}
+
+.dashboard-boxes-container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.dashboard-boxes-inside-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard-box {
+    width: 250px;
+    height: 100px;
+    /* background-color: antiquewhite; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+}
+
+.dashboard-box:hover{
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+.dashboard-remaining-last-container{
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.dashboard-remaining-last-container:hover{
+    transform: scale(1.01);
+}
+
+.dashboard-box-1{
+    display: flex;
+}
+
+.admin-dashboard-img{
+    height: 70px;
+    width: 70px;
+}
+
+.admin-dashboard-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.admin-dashboard-users{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-dashboard-users p {
+    margin: 0;
+}
+
+.user-no{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.user-title{
+    font-size: 18px;
+}
+
+.dashboard-total-orders-img{
+    height: 80px;
+    width: 80px;
+}
+
+.dashboard-total-orders-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.dashboard-remaining-last-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+}
+
+.total-order-status-options{
+    display: flex;
+    gap: 120px;
+}
+
+.total-order-status-options p{
+    margin: 0;
+}
+
+.status-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

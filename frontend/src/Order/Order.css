@@ -1,0 +1,128 @@
+.order-page{
+    margin: 50px 0;
+}
+
+.inner-order-page{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 50px;
+}
+
+.input-box-div{
+    background-color: antiquewhite;
+    height: 470px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 7%;
+    padding: 10px;
+}
+
+.delivery-information-section-left{
+    width: 100%;
+    /* max-width: max(30%, 450px); */
+}
+
+.delivery-information-page-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.input{
+    width: 100%;
+    padding: 15px 0 5px 5px;
+}
+
+.input-container{
+    display: flex;
+    justify-content: center;
+    gap: 4%;
+}
+
+.delivery-information-section-right{
+    width: 100%;
+    max-width: max(30%, 300px);
+}
+
+.order-cart-total-amount-section{
+    margin: 35px 0 20px 0;
+    background-color: antiquewhite;
+    padding: 8px;
+}
+
+@media (max-width: 700px){
+    .inner-order-page{
+        flex-direction: column;
+    }
+    .delivery-information-section-left{
+        width: 100%;
+        max-width: max(45%, 100%);
+    }
+    .delivery-information-section-right{
+        width: 100%;
+        max-width: max(40%, 250px);
+    }
+}
+
+@media (max-width: 650px){
+    .delivery-information-page-container{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .input-box-div{
+        height: auto;
+        gap: 15px;
+    }
+}
+
+.inner-cart-total-amount h2{
+    font-weight: bold;
+}
+
+.sub-total-amount{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 5px;
+}
+
+.total-delivery-fee{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 5px;
+}
+
+.total-amount{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 5px;
+}
+
+.checkOut-btn-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.checkOut-btn-div button{
+    padding: 10px 10px;
+    color: white;
+    background-color: tomato;
+    border: none;
+    cursor: pointer;
+    margin: 5px 5px;
+    transition: transform 0.3s ease;
+}
+
+.cash-on-delivery:active{
+    transform: scale(0.9);
+}
+
+.proceed-to-payment:active{
+    transform: scale(0.9);
+}

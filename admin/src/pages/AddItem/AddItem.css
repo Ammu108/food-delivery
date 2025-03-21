@@ -1,0 +1,47 @@
+.admin-additem-container{
+    height: 85vh;
+    margin: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.admin-additem-container::-webkit-scrollbar{
+    display: none;
+}
+
+.upload-img-div{
+    display: flex;
+    align-items: center;
+    height: 70px;
+    width: 70px;
+}
+
+.upload-img-div img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.upload-img-placeholder{
+    margin-left: 15px;
+}
+
+.additem-img-div-box{
+    display: flex;
+    align-items: center;
+}
+
+.btn button{
+    width: 100%;
+    height: 50px;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.btn:active button{
+    transform: scale(0.9);
+}

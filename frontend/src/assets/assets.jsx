@@ -2,6 +2,7 @@ import AtomLogo from "./atom-kitchen.png"
 import heroImage from "./hero-img.jpg"
 import About from "./about.png"
 import Share from "./share.png"
+import basket from "./package.png"
 import Contact from "./contact.png"
 import pizza from "./img_1(pizza).jpg"
 import Pizza from "./menuImages/img_1(pizza).jpg"
@@ -27,6 +28,7 @@ export const images = {
     Share,
     Contact,
     pizza,
+    basket,
 }
 
 export const foodMenu = [

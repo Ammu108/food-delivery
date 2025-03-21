@@ -1,0 +1,100 @@
+.inside-admin-all-users-container{
+    height: 79vh;
+    background-color: white;
+    padding: 20px;
+    overflow-y: auto;
+    margin: 20px;
+}
+
+.inside-admin-all-users-container::-webkit-scrollbar {
+    display: none;
+}
+
+.inside-admin-all-users-container{
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.inside-admin-all-users-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.users-table th, .users-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.users-table th {
+    background: var(--primary-color);
+    color: white;
+}
+
+.users-table tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+.loading-text, .no-users-text {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    margin-top: 20px;
+}
+
+.all-users-name{
+    width: 27%;
+}
+
+.all-user-actions-btn{
+    width: 12%;
+}
+
+/* Delete Button */
+.delete-button {
+    background: rgb(255, 119, 95);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.delete-button:hover {
+    background: var(--primary-color);
+}
+
+.back-btn-div button{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid black;
+    margin-bottom: 20px;
+    height: 30px;
+}
+
+.back-btn{
+    transition: transform, background-color 0.4s ease;
+}
+
+.back-btn:hover{
+    transform: scale(1.02);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.back-btn:active{
+    transform: scale(0.9);
+}

@@ -7,7 +7,7 @@ import Menu from '../../Menu/Menu'
 
 const DisplayFood = ({ category }) => {
 
-  const { food_list } = useContext(AppContext);
+  const { food_list, url } = useContext(AppContext);
   const navigate = useNavigate();
 
   const filteredItems = category === "All" ? food_list : food_list.filter(item => item.category === category);
@@ -26,7 +26,7 @@ const DisplayFood = ({ category }) => {
         <div className='food-display-list'>
           {visibleItems.map((item, index) => (
             <>
-              <FoodItem key={index} id={item._id} name={item.name} description={item.desc} image={item.imageUrl} price={item.price} customization={item.customizations}/>
+              <FoodItem key={index} id={item._id} name={item.name} description={item.description} image={`${url}/images/`+item.image} price={item.price} customization={item.customizations}/>
             </>
           ))}
         </div>

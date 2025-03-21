@@ -7,7 +7,7 @@ import Customization from '../components/Customization/Customization';
 
 const Menu = () => {
 
-  const { foodMenu, food_list } = useContext(AppContext);
+  const { foodMenu, food_list, url } = useContext(AppContext);
   const { category } = useParams();
   const [active, setActive] = useState(null)
   const [filteredFood, setFilteredFood] = useState([])
@@ -75,7 +75,7 @@ const Menu = () => {
                 <div className='food-display-list'>
                   {filteredFood.map((item, index) => (
                     <>
-                      <FoodItem key={index} id={item._id} name={item.name} description={item.desc} image={item.imageUrl} price={item.price} customization={item.customizations}/>
+                      <FoodItem key={index} id={item._id} name={item.name} description={item.description} image={`${url}/images/`+item.image} price={item.price} customization={item.customizations}/>
                     </>
                   ))}
                 </div>

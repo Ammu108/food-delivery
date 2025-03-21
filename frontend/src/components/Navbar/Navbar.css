@@ -149,10 +149,18 @@
     position: absolute;
     top: 26px;
     right: -3px;
-    height: 90px;
+    height: 125px;
     background-color: var(--primary-color);
     z-index: 1000;
     display: block;
+}
+
+.dropdown-item{
+    padding: 0 15px 0 5px;
+}
+
+.order-link{
+    margin-left: 5px;
 }
 
 .dropdown-item:hover{

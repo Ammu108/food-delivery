@@ -8,28 +8,30 @@ const login = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        
-        const user = await userModel.findOne({email})
-        if(!user){
-            return res.json({success:false, message: "user doesn't exist"});
+
+        const user = await userModel.findOne({ email })
+        if (!user) {
+            return res.json({ success: false, message: "user doesn't exist" });
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
-        if(!isMatch){
-            return res.json({success:false, message:"Invalid Credentials"})
+        if (!isMatch) {
+            return res.json({ success: false, message: "Invalid Credentials" })
         }
 
         const token = createToken(user._id)
-        return res.json({success: true, token, user: {
-            _id: user._id,
-            name: user.name,
-            email: user.email,
-            picture:user.picture,
-        }})
+        return res.json({
+            success: true, token, user: {
+                _id: user._id,
+                name: user.name,
+                email: user.email,
+                picture: user.picture,
+            }
+        })
 
     } catch (error) {
         console.log(error)
-        return res.json({success:false, message: "error"})
+        return res.json({ success: false, message: "error" })
     }
 
 }
@@ -72,7 +74,7 @@ const registerUser = async (req, res) => {
         const token = createToken(user._id);
 
         res.json({
-            sucess: true, token, user: {
+            success: true, token, user: {
                 _id: user._id,
                 name: user.name,
                 email: user.email,
@@ -82,8 +84,39 @@ const registerUser = async (req, res) => {
 
     } catch (error) {
         console.log(error)
-        return res.json({ sucess: false, message: "error" })
+        return res.json({ success: false, message: "error" })
     }
 }
 
-export { registerUser, login };
+// API to get all users
+
+const allUsers = async (req, res) => {
+    try {
+        const allUsers = await userModel.find({});
+        res.json({success:true, allUsers})
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ success: false, message: "error" });
+    }
+}
+
+// API to delete the user
+
+const deleteUser = async (req, res) => {
+    try {
+
+        const { id } = req.body;
+
+        const deletedUser = await userModel.findByIdAndDelete(id);
+        if(!deletedUser){
+            return res.json({success:false,message:"user not found"})
+        }
+        res.json({success:true,message:"user deleted successfully"})
+    } catch (error) {
+        console.log(error)
+        res.json({success:false,message:"internal server error"})
+    }
+}
+
+
+export { registerUser, login, deleteUser, allUsers };

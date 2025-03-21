@@ -1,35 +1,34 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./FoodItem.css"
 import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../../context/AppContext';
 
 const FoodItem = ({ id, image, description, name, price }) => {
 
     const navigate = useNavigate();
+    const { cartItems, addToCart, removeFromCart } = useContext(AppContext);
 
     return (
         <>
             <div className='food-display-list-item'>
                 <div className='food-display-list-item-img'>
                     <img src={image} className='food-item-img' alt='img' />
-                    {/* {!cartItems[id] */}
-                    <div className='add-icon'>
-                        <i className="fa-solid fa-plus"></i>
-                    </div>
-                    {/* <div className='food-item-count'>
+                    {!cartItems[id]
+                        ? <div onClick={() => addToCart(id)} className='add-icon'>
+                            <i className="fa-solid fa-plus"></i>
+                        </div>
+                        : <div className='food-item-count'>
                             <div className='add-icon-minus'>
-                                <i className="fa-solid fa-minus"></i>
+                                <i onClick={() => removeFromCart(id)} className="fa-solid fa-minus"></i>
                             </div>
-                            <p></p>
+                            <p>{cartItems[id]}</p>
                             <div className='add-icon-add'>
-                                <i className="fa-solid fa-plus"></i>
+                                <i onClick={() => addToCart(id)} className="fa-solid fa-plus"></i>
                             </div>
-                        </div> */}
-                    {/* } */}
+                        </div>
+                    }
                 </div>
-                <div onClick={() => {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                    navigate(`/customization/${id}`)
-                }} className='food-item-img-about-section'>
+                <div className='food-item-img-about-section'>
                     <div className='food-img-title'>
                         <div className='food-item-name'>
                             <h3 className='fw-bold'>{name}</h3>

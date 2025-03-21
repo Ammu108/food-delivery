@@ -17,7 +17,7 @@ const Navbar = ({ setShowLogin }) => {
   }
 
   const alertSignIn = () => {
-    alert('Sign in first');
+    alert('This Feature Will Be Available Soon.');
   };
 
   const handleDropdown = () => {
@@ -79,6 +79,7 @@ const Navbar = ({ setShowLogin }) => {
                     </div>
 
                     <button className='logout-btn' onClick={handleLogout}>Logout</button>
+                    <Link to="/status">Orders</Link>
                   </>
                 )}
               </ul>
@@ -103,6 +104,8 @@ const Navbar = ({ setShowLogin }) => {
                     <ul className="dropdown-menu">
                       <a className="dropdown-item text-white">{user.name}</a>
                       <a className="dropdown-item text-white">{user.email}</a>
+                      <Link to="/status" className='order-link text-white'>Orders</Link>
+                      <a className="dropdown-item text-white" onClick={handleLogout} style={{cursor:"pointer"}}>Logout</a>
                     </ul>
                   </div>
                 )}

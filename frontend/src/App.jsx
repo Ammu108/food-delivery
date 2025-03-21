@@ -8,15 +8,19 @@ import Contact from './Contact/Contact'
 import Footer from './components/Footer/Footer'
 import SignIn from './SignIn/SignIn'
 import Cart from './Cart/Cart'
+import Order from './Order/Order'
 import Customization from './components/Customization/Customization'
+import { ToastContainer } from 'react-toastify';
+import Status from './Status/Status'
 
 const App = () => {
 
   const [showLogin, setShowLogin] = useState(false);
 
-  return (
+  return (  
     <>
       {showLogin ? <SignIn setShowLogin={setShowLogin} /> : <></>}
+      <ToastContainer/>
       <Navbar setShowLogin={setShowLogin} />
       <div className='body'>
         <Routes>
@@ -27,6 +31,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/customization/:id" element={<Customization />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/status" element={<Status />} />
         </Routes>
       </div>
       <Footer />

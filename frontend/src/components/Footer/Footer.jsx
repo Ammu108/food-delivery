@@ -34,6 +34,7 @@ const Footer = () => {
                     <div className='footer-section-right'>
                         <h4 className='font-size fw-bold'>+91-999-071-6368</h4>
                         <p className='font-size'>Contact @amenx.com</p>
+                        <button onClick={()=> window.open("https://foodadmin-beige.vercel.app/", "_blank")} className='admin-btn'>Admin Panel</button>
                     </div>
                 </div>
                 <div className='copy-right'>
