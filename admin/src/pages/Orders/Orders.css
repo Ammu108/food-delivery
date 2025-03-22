@@ -17,6 +17,26 @@
 
 .order-details-id-box{
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-details-id-box button{
+  width: 100px;
+  background-color: var(--primary-color);
+  color: white;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+}
+
+.order-delete-btn{
+  transition: transform 0.3s ease;
+}
+
+.order-delete-btn:active{
+  transform: scale(0.9);
 }
 
 .order-details-id-box p{

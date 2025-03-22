@@ -105,7 +105,7 @@ const Order = () => {
                                     <div className="delivery-information-section-right">
                                         <div className="order-cart-total-amount-section">
                                             <div className="inner-cart-total-amount">
-                                                <h2>Cart Totals</h2>
+                                                <h4 className='fw-bold'>Cart Totals</h4>
                                                 <div className="sub-total-amount">
                                                     <p className="font-adjust-title">Sub Total</p>
                                                     <p className="font-adjust-items">₹ {getTotalCartAmount()}</p>

@@ -92,6 +92,7 @@
     border-radius: 5px;
     height: 30px;
     transition: transform 0.3s ease;
+    margin-bottom: 30px;
 }
 
 .admin-btn:active{

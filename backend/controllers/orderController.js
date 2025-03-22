@@ -132,4 +132,24 @@ const updateCart =  async (req, res) => {
     }
 }
 
-export { placeOrder, getOrderData, clientOrderData, updateCart };
+// API to delete the appointment 
+
+const deleteOrder = async (req, res) => {
+    try {
+
+        const { id } = req.body;
+
+        const deleteOrder = await orderModel.findByIdAndDelete(id);
+
+        if (!deleteOrder) {
+            return res.status(404).json({ success: false, message: "Order not found" });
+        }
+
+        res.json({ success: true, message: "Order deleted successfully" });
+    } catch (error) {
+        console.error("Error deleting order:", error);
+        res.status(500).json({ success: false, message: "Internal Server Error" });
+    }
+};
+
+export { placeOrder, getOrderData, clientOrderData, updateCart, deleteOrder };

@@ -42,6 +42,24 @@ const Orders = () => {
     navigate("/dashboard")
   }
 
+  const handleDelete = async (orderId) => {
+    if (!window.confirm("Are you sure you want to delete this appointment?")) return;
+
+    try {
+      const response = await axios.delete(backendUrl + "/api/order/delete-order", { headers: { aToken }, data: { id: orderId } });
+
+      if (response.data.success) {
+        toast.success("Order deleted successfully!");
+        // navigate("/all-appointments");
+      } else {
+        toast.error("Failed to delete order");
+      }
+    } catch (error) {
+      console.error("Error deleting order:", error);
+      toast.error("Error deleting order");
+    }
+  };
+
   return (
     <div className='admin-orders-container'>
       <div className='order-page-header'>
@@ -64,6 +82,7 @@ const Orders = () => {
 
             <div className='order-details-id-box'>
               <p>Order ID: {order._id}</p>
+              <button className='order-delete-btn' onClick={() => handleDelete(order._id)}>Delete</button>
             </div>
 
             <div className='order-items-details'>

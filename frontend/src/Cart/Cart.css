@@ -20,8 +20,16 @@
     margin: 0;
 }
 
+.inner-cart-total-amount p{
+    margin: 0;
+}
+
 .cart-bar{
     opacity: 0.7;
+    margin: 0;
+}
+
+.cart-total-bar{
     margin: 0;
 }
 
@@ -202,6 +210,9 @@
     }
     .font-adjust-items{
         font-size: 14px;
+    }
+    .inner-cart-total-amount h4{
+        font-size: 17px;
     }
 }
 

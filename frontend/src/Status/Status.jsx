@@ -47,7 +47,7 @@ const Status = () => {
                         {loading ? (
                             <div className='loading-div-parent'>
                                 <div className='loading-div'>
-                                    <h2>Loading Appointments...</h2>
+                                    <h2>Loading Orders...</h2>
                                     <span className="loader"></span>
                                 </div>
                             </div>

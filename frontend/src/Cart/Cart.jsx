@@ -76,16 +76,16 @@ const Cart = () => {
                                 <div className="cart-total-amount-section">
                                     <div className="inner-cart-total-amount">
                                         <h4 className='fw-bold'>Cart Totals</h4>
-                                        <div className="sub-total-amount">
+                                        <div className="sub-total-amount mt-3">
                                             <p className="font-adjust-title">Sub Total</p>
                                             <p className="font-adjust-items">₹ {getTotalCartAmount()}</p>
                                         </div>
-                                        <hr className="cart-bar" />
+                                        <hr className="cart-total-bar" />
                                         <div className="total-delivery-fee">
                                             <p className="font-adjust-title">Delivery Fee</p>
                                             <p className="font-adjust-items">₹ 55</p>
                                         </div>
-                                        <hr className="cart-bar" />
+                                        <hr className="cart-total-bar" />
                                         <div className="total-amount">
                                             <p className="font-adjust-title">Total</p>
                                             <p className="font-adjust-items">₹ {getTotalCartAmount() + 55}</p>
