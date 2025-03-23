@@ -8,52 +8,45 @@ import { toast } from 'react-toastify';
 const AddItem = () => {
 
     const fileInputRef = useRef(null);
-    const { backendUrl } = useContext(AdminContext)
-    const [image, setImage] = useState(false)
-    const [data, setData] = useState({
-        name: "",
-        description: "",
-        price: "",
-        category: "",
-    })
+    const { backendUrl } = useContext(AdminContext);
+    const [image, setImage] = useState(null);
+    const [name, setName] = useState("");
+    const [description, setDescription] = useState("");
+    const [price, setPrice] = useState("");
+    const [category, setCategory] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const handleImageClick = () => {
         fileInputRef.current.click(); // Trigger file input on image click
     };
 
-    const onChangeHandler = (event) => {
-        const name = event.target.name;
-        const value = event.target.value;
-        setData(data => ({ ...data, [name]: value }))
-    }
-
-    const onSubmitHandler = async (event) => {
-        event.preventDefault();
+    const onSubmitHandler = async (e) => {
+        e.preventDefault();
 
         const formData = new FormData();
-        formData.append("name", data.name);
-        formData.append("description", data.description);
-        formData.append("price", Number(data.price));
-        formData.append("category", data.category);
-        formData.append("image", image);
+        formData.append("name", name);
+        formData.append("description", description);
+        formData.append("price", Number(price));
+        formData.append("category", category);
 
-        const response = await axios.post(`${backendUrl}/api/food/add-item`, formData)
+        if (image) {
+            formData.append("image", image); // Attach image if selected
+        }
 
-        if (response.data.success) {
-            setData({
-                name: "",
-                description: "",
-                price: "",
-                category: "",
-            })
-            if (!image) {
-                alert("Please upload an image.");
-                return;
-            }
-            setImage(false)
-            toast.success("Food item added successfully!");
-        } else {
-            toast.error(response.data.error)
+        setLoading(true);
+
+        try {
+            const response = await axios.post(`${backendUrl}/api/food/add-item`, formData);
+            toast.success(response.data.message);
+            setName("");
+            setDescription("");
+            setPrice("");
+            setCategory("");
+            setImage(null);
+        } catch (error) {
+            toast.error(error.response?.data?.message || "Something went wrong!");
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -74,11 +67,11 @@ const AddItem = () => {
 
                         <div className="col-md-6 mt-4">
                             <label htmlFor="inputName" className="form-label">Food Name</label>
-                            <input type="text" name="name" onChange={onChangeHandler} value={data.name} className="form-control" id="inputName" placeholder='Full Name' required />
+                            <input type="text" name="name" onChange={(e) => setName(e.target.value)} value={name} className="form-control" id="inputName" placeholder='Full Name' required />
                         </div>
                         <div className="col-md-6 mt-4">
                             <label htmlFor="category" className="form-label">Food Category</label>
-                            <select id="category" onChange={onChangeHandler} value={data.category} name="category" className="form-control" required>
+                            <select id="category" onChange={(e) => setCategory(e.target.value)} value={category} name="category" className="form-control" required>
                                 <option value="Pizza">Pizza</option>
                                 <option value="PanCakes">PanCakes</option>
                                 <option value="Cake">Cake</option>
@@ -98,14 +91,14 @@ const AddItem = () => {
                         </div>
                         <div className="col-md-6 mt-5">
                             <label htmlFor="inputEmail" className="form-label">Food Price</label>
-                            <input type="number" name='price' onChange={onChangeHandler} value={data.price} className="form-control" id="inputPrice" required />
+                            <input type="number" name='price' onChange={(e) => setPrice(e.target.value)} value={price} className="form-control" id="inputPrice" required />
                         </div>
                         <div className="mb-3 mt-5">
                             <label htmlFor="aboutDoctor" className="form-label">Food Description</label>
-                            <textarea className="form-control" onChange={onChangeHandler} value={data.description} name='description' id="aboutFood" rows="3" placeholder="write about Food..."></textarea>
+                            <textarea className="form-control" onChange={(e) => setDescription(e.target.value)} value={description} name='description' id="aboutFood" rows="3" placeholder="write about Food..."></textarea>
                         </div>
                         <div className="col-12 btn mb-4">
-                            <button type='submit' className='add-btn'>Add Food</button>
+                            <button type='submit' className='add-btn' disabled={loading}>{loading ? "Adding Item..." : "Add Food Item"}</button>
                         </div>
                     </form>
                 </div>

@@ -27,7 +27,7 @@ const FoodList = () => {
     if (!window.confirm("Are you sure you want to delete this doctor?")) return;
 
     try {
-      const response = await axios.post(backendUrl + `/api/food/remove-food`, { id: itemId }, {
+      const response = await axios.delete(`${backendUrl}/api/food/remove-food/${itemId}`, {
         headers: { aToken }
       });
 
@@ -55,7 +55,7 @@ const FoodList = () => {
             {loading ? (
               <div className='loading-div-parent'>
                 <div className='loading-div'>
-                  <h2>Loading Doctors...</h2>
+                  <h2>Loading Items...</h2>
                   <span className="loader"></span>
                 </div>
               </div>
@@ -63,7 +63,7 @@ const FoodList = () => {
               foodList.map((item, index) => (
                 <div key={index} className='food-display-list-item'>
                   <div className='food-display-list-item-img'>
-                    <img src={`${backendUrl}/images/` + item.image} className='food-item-img' alt='img' />
+                    <img src={item.image} className='food-item-img' alt='img' />
                     {/* {!cartItems[id] */}
                     <div className='add-icon'>
                       <i className="fa-solid fa-plus"></i>

@@ -75,6 +75,17 @@ a {
     width: 100%;
 } */
 
+.food-display-list{
+    width: 100%;
+}
+
+.adjustbale-loading-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
 .activeCategory{
     background-color: rgb(224, 224, 224);
 }

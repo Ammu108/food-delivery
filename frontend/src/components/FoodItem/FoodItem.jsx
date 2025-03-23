@@ -6,7 +6,7 @@ import { AppContext } from '../../context/AppContext';
 const FoodItem = ({ id, image, description, name, price }) => {
 
     const navigate = useNavigate();
-    const { cartItems, addToCart, removeFromCart } = useContext(AppContext);
+    const { cartItems, addToCart, removeFromCart, token } = useContext(AppContext);
 
     return (
         <>

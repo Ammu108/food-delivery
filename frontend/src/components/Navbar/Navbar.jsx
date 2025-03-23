@@ -103,9 +103,9 @@ const Navbar = ({ setShowLogin }) => {
                   <div className='dropdown-container'>
                     <ul className="dropdown-menu">
                       <a className="dropdown-item text-white">{user.name}</a>
-                      <a className="dropdown-item text-white">{user.email}</a>
-                      <Link to="/status" className='order-link text-white'>Orders</Link>
-                      <a className="dropdown-item text-white" onClick={handleLogout} style={{cursor:"pointer"}}>Logout</a>
+                      <a className="dropdown-item text-white email">{user.email}</a>
+                      <Link to="/status" onClick={()=>setDropDown(false)} className='order-link text-white'>Orders</Link>
+                      <a className="dropdown-item text-white mt-3" onClick={handleLogout} style={{cursor:"pointer"}}>Logout</a>
                     </ul>
                   </div>
                 )}

@@ -142,13 +142,13 @@
 }
 
 .empty-cart{
-    margin-top: 80px;
+    margin-top: 100px;
     display: flex;
     justify-content: center;
     background-color: antiquewhite;
     border-radius: 5px;
     padding: 15px;
-    margin-bottom: 60px;
+    margin-bottom: 100px;
 }
 
 .empty-cart h1{

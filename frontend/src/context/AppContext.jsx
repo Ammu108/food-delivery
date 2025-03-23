@@ -17,17 +17,21 @@ const AppContextProvider = (props) => {
     const [orderList, setOrderList] = useState([]);
 
     const addToCart = async (itemId) => {
-        if (!cartItems[itemId]) {
-            setCartItems((prev) => ({ ...prev, [itemId]: 1 }))
+        if (token) {
+            if (!cartItems[itemId]) {
+                setCartItems((prev) => ({ ...prev, [itemId]: 1 }))
+            } else {
+                setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
+            }
+            
+            if (token && user) {
+                await axios.post(url + "/api/cart/add", 
+                    { userId: user._id, itemId }, // ✅ Include userId
+                    { headers: { token } }
+                );
+            }
         } else {
-            setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
-        }
-        
-        if (token && user) {
-            await axios.post(url + "/api/cart/add", 
-                { userId: user._id, itemId }, // ✅ Include userId
-                { headers: { token } }
-            );
+            alert("Please Sign In First");
         }
     }
 
@@ -106,6 +110,7 @@ const AppContextProvider = (props) => {
     }, [])
 
     const value = {
+        token,
         food_list,
         foodMenu,
         cartItems,

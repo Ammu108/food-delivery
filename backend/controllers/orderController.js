@@ -20,6 +20,12 @@ const placeOrder = async (req, res) => {
             return res.status(404).json({ success: false, error: "User not found" });
         }
 
+        const cartData = user.cartData || {}; // Get the user's cart
+
+        if (Object.keys(cartData).length === 0) {
+            return res.status(400).json({ success: false, error: "Cart is empty" });
+        }
+
         const newOrder = new orderModel({
             userId,
             name,
@@ -37,7 +43,8 @@ const placeOrder = async (req, res) => {
         });
 
         await newOrder.save();
-
+        await userModel.findByIdAndUpdate(userId, { cartData: {} });
+        
         return res.status(201).json({ success: true, message: "Order placed successfully", order: newOrder });
     } catch (error) {
         console.error("Error placing order:", error);

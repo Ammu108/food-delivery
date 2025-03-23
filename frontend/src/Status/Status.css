@@ -32,7 +32,7 @@
     display: inline-block;
     position: relative;
     border: 3px solid;
-    border-color: #D9EAFD #D9EAFD transparent transparent;
+    border-color: tomato tomato transparent transparent;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
   }
@@ -47,7 +47,7 @@
     bottom: 0;
     margin: auto;
     border: 3px solid;
-    border-color: transparent transparent #c0ddfe #c0ddfe;
+    border-color: transparent transparent rgb(255, 170, 155) rgb(255, 170, 155);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -58,7 +58,7 @@
   .loader::before {
     width: 32px;
     height: 32px;
-    border-color: #D9EAFD #D9EAFD transparent transparent;
+    border-color: rgb(255, 217, 210) rgb(255, 217, 210) transparent transparent;
     animation: rotation 1.5s linear infinite;
   }
       
@@ -106,7 +106,6 @@
     align-items: center;
     width: 350px;  
     flex-wrap: wrap;
-    /* background-color: red; */
   }
 
   .order-items-box p{
@@ -114,18 +113,52 @@
     padding: 0;
   }
 
+  .order-items p{
+    margin: 0;
+    padding: 0;
+  }
+
   .order-items{
     width: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .order-amount p{
+    margin: 0;
+    padding: 0;
   }
 
   .order-amount{
     width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .order-status p{
+    margin: 0;
   }
 
   .order-status{
     width: 160px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .delete-order-btn i{
+    transition: transform 0.3s ease;
+    margin: 10px;
+  }
+
+  .delete-order-btn:hover i{
+    cursor: pointer;
+  }
+
+  .delete-order-btn:active i{
+    transform: scale(0.8);
   }
 
   .order-details-inside-container{
@@ -135,15 +168,27 @@
     justify-content: space-between;
     border: 1px solid black;
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 10px 20px 10px 20px;
   }
 
   .adjustable-order-status{
     display: none;
+    
   }
 
   .adjustable-order-items{
     display: none;
+  }
+
+  .adjustable-delete-order-btn i{
+    display: none;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+
+  .order-amount{
+    display: flex;
+    flex-direction: column;
   }
 
   @media (max-width: 1070px){
@@ -177,6 +222,12 @@
       gap: 10px;
     }
     .adjustable-order-status{
+      display: block;
+    }
+    .delete-order-btn i{
+      display: none;
+    }
+    .adjustable-delete-order-btn i{
       display: block;
     }
   }

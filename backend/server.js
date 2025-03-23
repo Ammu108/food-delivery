@@ -7,6 +7,7 @@ import cartRouter from "./routes/cartRoute.js";
 import adminRouter from "./routes/adminRoute.js";
 import foodRouter from "./routes/foodRoute.js";
 import orderRouter from "./routes/orderRoute.js";
+import connectCloudinary from "./config/cloudinary.js"
 
 // app config
 const app = express()
@@ -14,10 +15,12 @@ const port = process.env.PORT || 4000;
 
 // DB Connection
 connectDB();
+connectCloudinary();
 
 // middleware
 app.use(express.json())
 app.use(cors())
+app.use(express.urlencoded({ extended: true })); // Important for FormData
 
 // API endpoints
 app.use("/api/user", userRouter);
