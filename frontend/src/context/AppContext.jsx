@@ -8,7 +8,7 @@ export const AppContext = createContext()
 
 const AppContextProvider = (props) => {
 
-    const url = "https://food-del-backend-75ee.onrender.com" || "http://localhost:4000";
+    const url = "https://food-del-backend-75ee.onrender.com" ||  "http://localhost:4000";
     // "https://food-del-backend-75ee.onrender.com" || 
     const [token, setToken] = useState(localStorage.getItem("token") || "");
     const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")) || null);
@@ -119,7 +119,6 @@ const AppContextProvider = (props) => {
         removeFromCart,
         getTotalCartAmount,
         url,
-        token,
         setToken,
         user,
         setUser,

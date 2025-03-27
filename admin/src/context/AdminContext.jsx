@@ -13,7 +13,7 @@ const AdminContextProvider = (props) => {
     const [foodList, setFoodList] = useState([]);
     const [orderList, setorderList] = useState([]);
 
-    const backendUrl = "https://food-del-backend-75ee.onrender.com" || import.meta.env.VITE_BACKEND_URL;
+    const backendUrl = "https://food-del-backend-75ee.onrender.com" ||  import.meta.env.VITE_BACKEND_URL;
     // "https://food-del-backend-75ee.onrender.com" ||
 
     const getAllUsers = async () => {

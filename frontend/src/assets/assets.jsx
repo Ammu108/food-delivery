@@ -37,21 +37,21 @@ export const foodMenu = [
         name: 'Pizza',
         imageUrl: Pizza,
     },
-    {
-        id: 2,
-        name: 'PanCakes',
-        imageUrl: Pancakes,
-    },
+    // {
+    //     id: 2,
+    //     name: 'PanCakes',
+    //     imageUrl: Pancakes,
+    // },
     {
         id: 3,
         name: 'Cake',
         imageUrl: Cakes,
     },
-    {
-        id: 4,
-        name: 'Salmon',
-        imageUrl: Salmon,
-    },
+    // {
+    //     id: 4,
+    //     name: 'Salmon',
+    //     imageUrl: Salmon,
+    // },
     {
         id: 5,
         name: 'Burger',
@@ -72,11 +72,11 @@ export const foodMenu = [
         name: 'Pasta',
         imageUrl: Pasta,
     },
-    {
-        id: 9,
-        name: 'Noodles',
-        imageUrl: Noodles,
-    },
+    // {
+    //     id: 9,
+    //     name: 'Noodles',
+    //     imageUrl: Noodles,
+    // },
     {
         id: 10,
         name: 'Rolls',

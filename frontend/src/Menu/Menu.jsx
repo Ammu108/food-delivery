@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import "./Menu.css";
 import { AppContext } from '../context/AppContext';
 import { Link, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import FoodItem from '../components/FoodItem/FoodItem';
 
 const Menu = () => {
@@ -11,6 +12,10 @@ const Menu = () => {
   const [filteredFood, setFilteredFood] = useState([]);
   const [adjustFilterDropDown, setAdjustFilterDropDown] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const searchQuery = searchParams.get("search"); // Get search term from URL
 
   const handleActive = (category) => {
     setActive(active === category ? null : category);
@@ -27,12 +32,28 @@ const Menu = () => {
   useEffect(() => {
     setLoading(true);
 
-    let filtered = category ? food_list.filter(doc => doc.category === category) : food_list;
+    // let filtered = category ? food_list.filter(doc => doc.category === category) : food_list;
+    // let shuffledFood = shuffleArray(filtered);
+
+    // setFilteredFood(shuffledFood);
+
+    let filtered = food_list;
+
+    if (category) {
+      filtered = filtered.filter(doc => doc.category === category);
+    }
+
+    if (searchQuery) {
+      const regex = new RegExp(searchQuery, 'i'); // Case-insensitive regex search
+      filtered = filtered.filter(doc => regex.test(doc.name));
+    }
+
     let shuffledFood = shuffleArray(filtered);
 
     setFilteredFood(shuffledFood);
+
     setLoading(false);
-  }, [category, food_list]);
+  }, [category, searchQuery, food_list]);
 
   return (
     <div className='menu-container'>

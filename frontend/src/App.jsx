@@ -12,16 +12,19 @@ import Order from './Order/Order'
 import Customization from './components/Customization/Customization'
 import { ToastContainer } from 'react-toastify';
 import Status from './Status/Status'
+import SearchBar from './SearchBar/SearchBar'
 
 const App = () => {
 
-  const [showLogin, setShowLogin] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);  
+  const [showSearchBar, setShowSearchBar] = useState(false);
 
   return (  
     <>
       {showLogin ? <SignIn setShowLogin={setShowLogin} /> : <></>}
       <ToastContainer/>
-      <Navbar setShowLogin={setShowLogin} />
+      <Navbar setShowLogin={setShowLogin} setShowSearchBar={setShowSearchBar}/>
+      {showSearchBar ? <SearchBar setShowSearchBar={setShowSearchBar}/> : ""}
       <div className='body'>
         <Routes>
           <Route path="/" element={<Home />} />

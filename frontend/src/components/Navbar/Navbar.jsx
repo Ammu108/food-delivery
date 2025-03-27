@@ -4,7 +4,7 @@ import "./Navbar.css"
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
 
-const Navbar = ({ setShowLogin }) => {
+const Navbar = ({ setShowLogin, setShowSearchBar }) => {
 
   const [menu, setMenu] = useState(false);
   const location = useLocation();
@@ -15,10 +15,6 @@ const Navbar = ({ setShowLogin }) => {
   const handleSetMenu = () => {
     setMenu(!menu);
   }
-
-  const alertSignIn = () => {
-    alert('This Feature Will Be Available Soon.');
-  };
 
   const handleDropdown = () => {
     setDropDown(!dropDown);
@@ -31,6 +27,10 @@ const Navbar = ({ setShowLogin }) => {
     setUser(null)
     navigate("/")
     setMenu(false)
+  }
+
+  const handleSearchBar = () => {
+    setShowSearchBar(true);
   }
 
   return (
@@ -87,7 +87,7 @@ const Navbar = ({ setShowLogin }) => {
           )}
 
           <div className='navbar-right-box'>
-            <i onClick={alertSignIn} className="fa-solid fa-magnifying-glass"></i>
+            <i onClick={handleSearchBar} className="fa-solid fa-magnifying-glass"></i>
             <Link to="/cart"><i className="fa-solid fa-cart-shopping"></i></Link>
 
             {!token ? (

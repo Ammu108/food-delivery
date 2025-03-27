@@ -6,7 +6,7 @@ const addToCart = async (req, res) => {
 
         console.log("User ID:", req.body.userId);
         let userData = await userModel.findById(req.body.userId);
-        console.log("User Data:", userData);
+        // console.log("User Data:", userData);
 
         if (!userData) {
             return res.status(404).json({ success: false, message: "User not found" });
@@ -43,7 +43,6 @@ const removeItem = async (req, res) => {
         res.json({success:false,message:"error"})
     }
 }
-
 
 // fetch user cart data
 const getCart = async (req, res) => {
